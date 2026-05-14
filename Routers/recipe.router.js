@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const {upload}=require('../utils/uploads.utils')
 const {createRecipe,updateRecipe,deleteRecipe,getAllRecipes} = require('../controllers/recipe.controller');
-
-router.post('/',upload.single('imageUrl'),createRecipe);
+const validate=require('../Middlewares/validation.middleware');
+const {categorySchema} = require('../validations/category.validation');
+router.post('/',validate(categorySchema),upload.single('imageUrl'),createRecipe);
 router.get('/',getAllRecipes);
 router.delete('/:id',deleteRecipe);
-router.put('/:id',upload.single('imageUrl'),updateRecipe);
+router.put('/:id',validate(categorySchema),upload.single('imageUrl'),updateRecipe);
 module.exports=router;
