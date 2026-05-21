@@ -11,7 +11,9 @@ exports.signUpSchema = Joi.object({
 
     password: Joi.string()
         .min(6)
-        .required()
+        .required(),
+    role: Joi.string()
+        .valid('admin', 'user')
 });
 exports.signInSchema = Joi.object({
 

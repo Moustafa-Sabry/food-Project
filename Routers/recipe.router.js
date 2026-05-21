@@ -3,9 +3,16 @@ const router = express.Router();
 const {upload}=require('../utils/uploads.utils')
 const {createRecipe,updateRecipe,deleteRecipe,getAllRecipes} = require('../controllers/recipe.controller');
 const validate=require('../Middlewares/validation.middleware');
-const {categorySchema} = require('../validations/category.validation');
-router.post('/',validate(categorySchema),upload.single('imageUrl'),createRecipe);
+const {recipeSchema} = require('../validations/recipe.validation');
+const allowTo =
+    require('../Middlewares/role.middelwar');
+const protect =
+    require('../Middlewares/auth.middleware');
+
+router.post('/',protect,validate(recipeSchema),upload.single('imageUrl'),createRecipe);
 router.get('/',getAllRecipes);
-router.delete('/:id',deleteRecipe);
-router.put('/:id',validate(categorySchema),upload.single('imageUrl'),updateRecipe);
+
+router.delete('/:id', protect, allowTo('admin'), deleteRecipe);
+
+router.put('/:id',protect,validate(recipeSchema),upload.single('imageUrl'),updateRecipe);
 module.exports=router;

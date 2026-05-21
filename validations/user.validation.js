@@ -30,5 +30,6 @@ exports.updateUserSchema = Joi.object({
 
     role: Joi.string().valid('admin', 'user'),
 
-    status: Joi.string().valid('active', 'inactive')
+    status: Joi.string().valid('active', 'inactive'),
+
 });
