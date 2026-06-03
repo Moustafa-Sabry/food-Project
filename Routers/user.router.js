@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {createUser,getAllUsers, getUserById, updateUser, deleteUser} = require('../controllers/user.controller');
+const {createUser,getAllUsers, getUserById, updateUser, deleteUser} = require('../Controllers/user.controller');
 const validate=require('../Middlewares/validation.middleware');
 const {createUserSchema,updateUserSchema} = require('../validations/user.validation');
 const protect = require('../Middlewares/auth.middleware');

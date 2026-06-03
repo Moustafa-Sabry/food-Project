@@ -1,8 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db.config');
+// const connectDB = require('./config/db.config');
+const connectDB = require('./Config/db.config');
 const errorMiddleware = require('./Middlewares/error.middleware');
 const AppError = require('./utils/AppError');
+const cors = require('cors');
+
 dotenv.config();
 process.on('uncaughtException', (err) => {
 
@@ -18,7 +21,7 @@ const app = express();
 
 
 app.use(express.json());
-
+app.use(cors())
 app.use('/auth',require('./Routers/auth.router'));
 app.use('/user',require('./Routers/user.router'));
 app.use('/categories', require('./Routers/category.routers'));
@@ -38,6 +41,7 @@ const server = app.listen(PORT, () => {
 
     console.log(`Server running on port ${PORT}`);
 });
+
 process.on('unhandledRejection', (err) => {
 
     console.log('UNHANDLED REJECTION!');
@@ -47,3 +51,5 @@ process.on('unhandledRejection', (err) => {
         process.exit(1);
     });
 });
+// versel deploy
+// module.exports = app;

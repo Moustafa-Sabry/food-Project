@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {upload}=require('../utils/uploads.utils')
-const {createRecipe,updateRecipe,deleteRecipe,getAllRecipes} = require('../controllers/recipe.controller');
+const {createRecipe,updateRecipe,deleteRecipe,getAllRecipes} = require('../Controllers/recipe.controller');
 const validate=require('../Middlewares/validation.middleware');
 const {recipeSchema} = require('../validations/recipe.validation');
 const allowTo =

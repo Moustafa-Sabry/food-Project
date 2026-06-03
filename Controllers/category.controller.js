@@ -1,4 +1,4 @@
-const category= require('../models/Category.model')
+const category= require('../Models/Category.model')
 const catchError = require('../utils/catchError.utils');
 const appError = require('../utils/AppError');
 const AppError = require("../utils/AppError");

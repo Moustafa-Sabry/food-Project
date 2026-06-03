@@ -1,5 +1,5 @@
-const user= require('../models/user.model')
-const Favorite = require('../models/favorite.model');
+const user= require('../Models/user.model')
+const Favorite = require('../Models/Favorite.model');
 const catchError = require('../utils/catchError.utils');
 const AppError=require('../utils/AppError');
 exports.createUser= catchError(async(req,res,next) => {

@@ -1,4 +1,4 @@
-const Favorite = require('../models/favorite.model');
+const Favorite = require('../Models/Favorite.model');
 const catchError = require('../utils/catchError.utils');
 const AppError = require("../utils/AppError");
 exports.addToFavorite = catchError(async(req,res,next) => {

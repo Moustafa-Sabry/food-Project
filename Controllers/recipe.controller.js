@@ -1,5 +1,5 @@
-const recipe= require('../models/Recipe.model')
-const Favorite = require('../models/favorite.model');
+const recipe= require('../Models/Recipe.model')
+const Favorite = require('../Models/Favorite.model');
 const fs = require('fs');
 const path = require('path');
 const catchError = require('../utils/catchError.utils');
